@@ -1,8 +1,8 @@
 @import url(font-awesome.min.css);
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic|Roboto+Slab:400,700");
+@import url('https://fonts.googleapis.com/css?family=Charmonman|Roboto');
 
 html, body, div, span, applet, object,
-iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
+iframe, h1, h2, h3, h4, h5, h6, blockquote,
 pre, a, abbr, acronym, address, big, cite,
 code, del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var, b,
@@ -20,14 +20,18 @@ section, summary, time, mark, audio, video {
     vertical-align: baseline;
 }
 
-/* Header */
+p{
+    padding: 8% 10% 0% 10%;
+}
 
+/* Header */
+/* Agendamento styles */
 #header {
     display: -moz-flex;
     display: -webkit-flex;
     display: -ms-flex;
     display: flex;
-    border-bottom: solid 5px #f56a6a;
+    border-bottom: solid 5px #fd79a8;
     padding: 6em 0 1em 0;
     position: relative;
 }
@@ -65,12 +69,12 @@ section, summary, time, mark, audio, video {
 
         #header {
             padding-top: 6.5em;
-            border-bottom: solid 5px #91d84f;
         }
 
             #header .logo {
                 font-size: 1.25em;
                 margin: 0;
+                padding: 0% 0% 10% 30%; 
             }
 
             #header .icons {
@@ -78,7 +82,12 @@ section, summary, time, mark, audio, video {
                 line-height: 5em;
                 position: absolute;
                 right: -0.5em;
-                top: 0;
+            }
+
+            .entre-na-conta{
+                top: 80%;
+                left: -18%;
+                position: absolute;
             }
 
     }
@@ -89,4 +98,104 @@ section, summary, time, mark, audio, video {
 
     .input-search {
         padding: 2rem 0rem 0rem 10rem;
+    }
+
+    .entre-na-conta{
+        padding: 0% 0% 0% 40%;
+    }
+
+    /* Pagina de login styles */
+
+    .text-center{
+        padding: 0% 0% 0% 30%;
+    }
+
+    .login-center{
+        padding: 1% 0% 0% 25%;
+    }
+
+    .botao-entrar{
+        padding: 1% 0% 0% 25%;
+    }
+
+    h5{
+        font-size: 12px;
+        font-family: Arial, sans-serif;
+        text-decoration: none;
+    }
+
+    .esqueceu-senha{
+        padding: 1% 0% 0% 25%;
+        
+    }
+
+    a, :active{
+        text-decoration: none;
+        color: #333;
+    }
+
+    .main-agendamento {
+        padding: 10% 0% 0% 28%;
+    }
+
+    #pesquisa-servicos {
+        width: 60%;
+    }
+
+    .cadastre-se {
+        padding: 1% 0% 0% 25%;
+    }
+
+    /* Painel */
+
+    h3 {
+        font-size: 12px;
+        font-family: Arial, sans-serif;
+        color: #fff;
+        padding: 1%; 
+    }
+
+    h4 {
+        font-size: 12px;
+        font-family: Arial, sans-serif;
+        color: #333;
+        padding: 1%; 
+    }
+
+    .seus-agendamentos{
+        background-color:#2d3436;
+        margin: 2% 0% 0% 10%;
+    }
+
+    .mostrar-agendamentos {
+        background-color:#f1f2f6;
+        margin: 0% 0% 0% 10%;
+    }
+
+    .fazer-um-novo-agendamento{
+        padding: 7% 0% 0% 10%;
+    }
+
+    /* Serviços */
+
+    .lista-servicos {
+        padding: 2% 0% 0% 12%;
+    }
+
+    .resultado-busca{
+        padding: 3% 0% 0% 10%;
+    }
+
+    /* Comprovante */
+
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 50%;
+    }
+    
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
     }
