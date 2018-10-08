@@ -25,14 +25,15 @@
 
     <!--section-->
     <section>
-        <div class="main-agendamento">
-            <h5>Digite o tipo de serviço desejado</h5>
-            </br>
-            <input type="text" id="pesquisa-servicos">
-            <a href="servicos.html">
+        <form action="models/busca.php" method="POST" enctype="multipart/form-data">
+            <div class="main-agendamento">
+                <h5>Digite o tipo de serviço desejado</h5>
+                </br>
+                <input type="text" id="pesquisa-servicos" name="pesquisa-servicos">
+                <input type="submit" value="Pesquisar">
                 <i class="fas fa-search"></i>
-            </a>
-        </div>
+            </div>
+        </form>
         <div class="fazer-um-novo-agendamento">
             <a href="painel.html">
                 <h5>Retornar ao painel</h5>
