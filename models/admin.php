@@ -22,8 +22,8 @@
     $horario= $_POST["horario"];
 
     $host = "localhost";
-    $user = "sa";
-    $password = "sa";
+    $user = "root";
+    $password = "";
     $banco = "agendamento";
 
     $db = new mysqli($host, $user, $password, $banco);

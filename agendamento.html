@@ -25,8 +25,8 @@
 
     <!--section-->
     <section>
-        <form action="models/busca.php" method="POST" enctype="multipart/form-data">
-            <div class="main-agendamento">
+        <form action="models/busca.php" method="POST" enctype="multipart/form-data" autocomplete="off">
+            <div class="main-agendamento, autocomplete">
                 <h5>Digite o tipo de serviço desejado</h5>
                 </br>
                 <input type="text" id="pesquisa-servicos" name="pesquisa-servicos">
@@ -40,10 +40,9 @@
             </a>
         </div>
         <div>
-
         </div>
     </section>
-
+    <script type="text/javascript" src="assets/js/main.js"></script>
 </body>
 
 </html>
