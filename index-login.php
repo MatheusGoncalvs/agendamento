@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE <!DOCTYPE html>
 <html>
 
@@ -18,16 +22,26 @@
 
     <!--section-->
     <section>
-        <form action="painel.html">
+        <form action="models/login.php" method="POST">
             <div class="busca-section">
                 <div class="text-center">
                     <h2>ENTRAR</h2>
                 </div>
+                <?php
+                    if(isset($_SESSION['nao_autenticado'])):
+                    ?>
+                    <div class="notification is-danger">
+                      <p>ERRO: Usuário ou senha inválidos.</p>
+                    </div>
+                    <?php
+                    endif;
+                    unset($_SESSION['nao_autenticado']);
+                    ?>
                 <div class="login-center">
-                    <input type="text">
+                    <input name="usuario" name="text" placeholder="Seu usuário" autofocus="">
                 </div>
                 <div class="login-center">
-                    <input type="password">
+                    <input name="senha" type="password" placeholder="Sua senha">
                 </div>
                 <div class="botao-entrar">
                     <input type="submit" value="ENTRAR">

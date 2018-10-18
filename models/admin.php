@@ -14,23 +14,13 @@
 </html>
 
 <?php
+    include('../PDO/connection.php');
 
     $tipo_servico= $_POST["tipo-servico"];
     $dia= $_POST["dia"];
     $mes= $_POST["mes"];
     $ano= $_POST["ano"];
     $horario= $_POST["horario"];
-
-    $host = "localhost";
-    $user = "root";
-    $password = "";
-    $banco = "agendamento";
-
-    $db = new mysqli($host, $user, $password, $banco);
-    if ($db->connect_error) {
-        echo "could not connect: " . $db->connect_error;
-        exit();
-    }
 
     try {
          $query = "INSERT INTO servico (id, tipo_servico, dia, mes, ano, horario,cod_cliente) VALUES ('NULL','$tipo_servico','$dia', '$mes', '$ano', '$horario','00')";
@@ -42,4 +32,5 @@
        }
 
        $db->close();
+       
 ?>

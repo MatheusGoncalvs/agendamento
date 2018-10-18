@@ -1,7 +1,7 @@
 <?php
     $host = 'localhost';
-    $user = 'root';
-    $password = '';
+    $user = 'sa';
+    $password = 'sa';
     $banco = 'agendamento';
 
     $db = new mysqli($host, $user, $password, $banco);
