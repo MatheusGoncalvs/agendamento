@@ -39,7 +39,7 @@ include('verifica_login.php');
                 <h4>Nenhum agendamento encontrado</h4>
             </div>
             <div class="fazer-um-novo-agendamento">
-                <a href="agendamento.html">
+                <a href="../models/busca.php">
                     <h5>Fazer um novo agendamento</h5>
                 </a>
             </div>

@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
         crossorigin="anonymous">
 </head>
-
 <body>
     <!--header-->
     <header id="header">
@@ -25,13 +24,38 @@
 
     <!--section-->
     <section>
-        <form action="models/busca.php" method="POST" enctype="multipart/form-data" autocomplete="off">
-            <div class="main-agendamento, autocomplete">
-                <h5>Digite o tipo de serviço desejado</h5>
+        <form action="models/busca.php" method="POST" enctype="multipart/form-data">
+            <div class="input-search">
+                <h5>Escolha o tipo de serviço desejado</h5>
                 </br>
-                <input type="text" id="pesquisa-servicos" name="pesquisa-servicos">
-                <input type="submit" value="Pesquisar">
-                <i class="fas fa-search"></i>
+                <select required>
+                    <option value="">Selecione</option>
+                    <?php
+include('../PDO/connection.php');
+
+try {
+    $query = "SELECT * FROM servico";
+    $resultObj = $db->query($query);
+
+    if($resultObj){
+        while($row = $resultObj->fetch_array()){
+          $linha = $row['tipo_servico'];
+            echo "Tipo de serviço: ".$linha.PHP_EOL; ?>
+            <option value="<?php echo $row['id']; ?>"><?php echo $row['tipo_servico'];?>
+            </option> <?php
+        }
+    }
+  
+  }
+  catch (PDOException $e) {
+    printf("We had a problem: %s\n", $e->getMessage());
+  }
+
+  $resultObj->close();
+  $db->close();
+
+?>
+                </select>
             </div>
         </form>
         <div class="fazer-um-novo-agendamento">
@@ -42,7 +66,6 @@
         <div>
         </div>
     </section>
-    <script type="text/javascript" src="assets/js/main.js"></script>
 </body>
 
 </html>
