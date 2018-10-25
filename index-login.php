@@ -1,24 +1,7 @@
 <?php
 session_start();
 ?>
-
-<!DOCTYPE <!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Agendamento</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-</head>
-
-<body>
-    <!--header-->
-    <header id="header">
-        <a href="index.html" class="logo"><strong>Agendamento</strong></a>
-    </header>
+    <?php include_once 'layout/header.inc.php' ?>
 
     <!--section-->
     <section>
@@ -47,7 +30,7 @@ session_start();
                     <input type="submit" value="ENTRAR">
                 </div>
                 <div class="cadastre-se">
-                    <a href="cadastre-se.html">
+                    <a href="cadastre-se-view.php">
                         <h5>Cadastre-se</h5>
                     </a>
                 </div>
@@ -59,7 +42,3 @@ session_start();
             </div>
         </form>
     </section>
-
-</body>
-
-</html>

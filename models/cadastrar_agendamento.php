@@ -9,8 +9,15 @@
     echo $usuario;
 
     try {
-         $query = "INSERT INTO usuario_agendamento (cod_agendamento, cod_usuario, cod_servico, cod_horario) VALUES ('NULL','$usuario','$tipo_servico_select','$servico_horario')";
+         $query = "INSERT INTO usuario_agendamento (cod_agendamento, cod_usuario, cod_servico, cod_horario) 
+            VALUES ('NULL','$usuario','$tipo_servico_select','$servico_horario')";
          $db->query($query);
+
+         echo $tipo_servico_select;
+
+         $query = "UPDATE servico SET cod_cliente = $usuario
+            where id = '$tipo_servico_select'";
+         $db->query($query);   
          printf("Dados inseridos com sucesso!");
        }
        catch (PDOException $e) {
@@ -31,6 +38,6 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <a href="../index.html">Voltar para a pagina inicial</a>
+    <a href="painel.php">Voltar para o painel</a>
 </body>
 </html>

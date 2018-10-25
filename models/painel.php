@@ -36,16 +36,47 @@ include('verifica_login.php');
                 <h3>Seus agendamentos</h3>
             </div>
             <div class="mostrar-agendamentos">
-                <h4>Nenhum agendamento encontrado</h4>
+                <?php
+    include('../PDO/connection.php');
+    $usuario = $_SESSION['usuario'];
+  try {
+
+    $query = "SELECT usuario_agendamento.cod_servico, servico.id, servico.tipo_servico, usuario_agendamento.cod_usuario
+	            FROM usuario_agendamento 
+                INNER JOIN servico
+                ON usuario_agendamento.cod_servico = servico.id ";
+        $resultObj = $db->query($query);
+
+        if($resultObj ->num_rows > 0){
+            while($row = $resultObj->fetch_array()){
+                if($row['cod_usuario'] == $usuario){
+                ?>
+                    <table>
+                        <tr>
+                            <th><h5><?php echo $row['tipo_servico'];?></h5></th>
+                        </tr>
+                <?php
+                }
+            }
+        }else {?> <tr><th><h5>Nenhum serviço encontrado :/</h5></tr></th> <?php
+      }}
+      catch (PDOException $e) {
+        printf("We had a problem: %s\n", $e->getMessage());
+      }
+  $resultObj->close();
+  $db->close();
+?>
             </div>
+            <tr>
+            <th>
             <div class="fazer-um-novo-agendamento">
                 <a href="../models/busca.php">
                     <h5>Fazer um novo agendamento</h5>
                 </a>
             </div>
-            <div>
-                <h5></h5>
-            </div>
+            </th>
+            </tr>
+            </table>
         </div>
     </section>
 
