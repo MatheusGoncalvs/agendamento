@@ -1,34 +1,4 @@
-<?php
-session_start();
-include('verifica_login.php');
-?>
-
-<!DOCTYPE <!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Agendamento</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <link rel="stylesheet" href="../assets/css/main.css" />
-</head>
-
-<body>
-    <!--header-->
-    <header id="header">
-        <a href="index.html" class="logo"><strong>Agendamento</strong></a>
-        <div class="entre-na-conta">
-            <a href="login.html">
-                <h5>Bem vindo: <?php echo $_SESSION['usuario'];?></h5>
-            </a>
-            <a href="index.html">
-                <h5><a href="logout.php"> | Sair | </a></h5>
-            </a>
-        </div>
-    </header>
-
+    <?php include_once '../layout/usuario_logado.php' ?>
     <!--section-->
     <section>
         <div>
@@ -50,11 +20,11 @@ include('verifica_login.php');
                 INNER JOIN servico
                 ON usuario_agendamento.cod_servico = servico.id ";
         $resultObj = $db->query($query);
-
+        $quantidade_linhas_usuario = 0;
         if($resultObj ->num_rows > 0){
             while($row = $resultObj->fetch_array()){
                 if($row['cod_usuario'] == $usuario){
-                    $code = $row['cod_agendamento']; 
+                    $code = $row['cod_agendamento'];
                 ?>
                     <table>
                         <tr>
@@ -66,12 +36,14 @@ include('verifica_login.php');
                                 <h5>Cancelar agendamento</h5></a></th>";
                             ?>
                         </tr>
-                    </table>    
+                    </table> 
                 <?php
-                
-                }else{?> 
-                    <tr><th><h5>Nenhum serviço encontrado :/</h5></tr></th> <?php 
+                $quantidade_linhas_usuario = ++$quantidade_linhas_usuario;
                 }
+            }
+            //Testa se tem serviço cadastrado para o cliente logado. Se não, apresenta a mensagem NSC.
+            if($quantidade_linhas_usuario == 0){?> 
+                <tr><th><h5>Nenhum serviço encontrado :/</h5></tr></th> <?php
             }
         }
       }
@@ -89,5 +61,3 @@ include('verifica_login.php');
             </div>
         </div>
     </section>
-</body>
-</html>

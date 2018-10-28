@@ -1,33 +1,4 @@
-<?php
-session_start();
-include('verifica_login.php');
-?>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Agendamento</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <link rel="stylesheet" href="../assets/css/main.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-        crossorigin="anonymous">
-</head>
-<body>
-    <!--header-->
-    <header id="header">
-        <a href="../index-login.php" class="logo"><strong>Agendamento</strong></a>
-        <div class="entre-na-conta">
-            <a href="login.html">
-                <h5>Bem vindo: <?php echo $_SESSION['usuario'];?></h5>
-            </a>
-            <a href="index.html">
-                <h5><a href="logout.php"> | Sair | </a></h5>
-            </a>
-        </div>
-    </header>
+<?php include_once '../layout/usuario_logado.php' ?>
 <hr>
 <form action="reagendamento_horario.php" method="GET">
 <div class="input-search">
@@ -90,5 +61,3 @@ include('verifica_login.php');
 </form>
 </div>
 </div>
-</body>
-</html>
