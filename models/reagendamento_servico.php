@@ -29,75 +29,66 @@ include('verifica_login.php');
         </div>
     </header>
 <hr>
-<form action="cadastrar_agendamento.php" method="POST">
+<form action="reagendamento_horario.php" method="GET">
 <div class="input-search">
+<h5>Codigo de agendamento:</h5>
+<input type="text" name="codigo_agendamento" size="1" value="<?php echo $_GET['id'] ?>"/>
 <h5>Escolha o tipo de serviço desejado</h5>
 </br>
-<select required name="select_servico_2">
+<select required name="id">
   <?php
     include('../PDO/connection.php');
-    $tipo_servico_select = $_POST["select_servico"];
-  try {
+    $cod_agendamento = $_GET['id'];
     $query = "SELECT * FROM servico ORDER BY id";
     $resultObj = $db->query($query);
-
-    if($resultObj){
-        while($row = $resultObj->fetch_array()){
-            if($row['id'] == $tipo_servico_select){
-        ?>
-            <option value="<?php echo $row['id']; ?>"><?php echo $row['tipo_servico'];?>
-            </option> <?php
-        }
-    }
-}
-  
-  }
-  catch (PDOException $e) {
-    printf("We had a problem: %s\n", $e->getMessage());
-  }
-
-  $resultObj->close();
-  $db->close();
-?>
-</select>
-</div>
-
-<div class="input-search">
-<h5>Escolha o horário do serviço desejado</h5>
-</br>
-
-<select required name="select_servico_horario">
-    <option>Selecione</option>
-  <?php
-    include('../PDO/connection.php');
-    $tipo_servico_select = $_POST["select_servico"];
-
   try {
-    $query = "SELECT * FROM servico_horario order by data_horario";
-    $resultObj = $db->query($query);
-
-    if($resultObj){
+    if($resultObj > 0){
         while($row = $resultObj->fetch_array()){
-            if($row['cod_servico'] == $tipo_servico_select){
         ?>
-            <option value="<?php echo $row['cod_horario']; ?>">
-            <?php echo $row['data_horario'], " às ",$row['horario'], " hs";?>
+        <option value="<?php echo $row['id']; ?>"><?php echo $row['tipo_servico'];?>
             </option> <?php
         }
-    }
-    }
-  
+    }   
   }
   catch (PDOException $e) {
     printf("We had a problem: %s\n", $e->getMessage());
   }
-
+?>
+</select>
+<?php 
+    include('../PDO/connection.php');
+    $cod_agendamento = $_GET['id'];
+    $query = "SELECT usuario_agendamento.cod_servico, 
+    servico.id, 
+    servico.tipo_servico, 
+    usuario_agendamento.cod_usuario,
+    usuario_agendamento.cod_agendamento
+    FROM usuario_agendamento 
+    INNER JOIN servico ON usuario_agendamento.cod_servico = servico.id";
+    $resultObj = $db->query($query);
+     if($resultObj){
+        while($row = $resultObj->fetch_array()){
+            if($row['cod_agendamento'] == $cod_agendamento){
+        ?>
+            </br>
+            </br>
+            <h5>Tipo de serviço já agendado: 
+            <strong style="color: #c0392b"><?php echo $row['tipo_servico']?></strong></h5>
+            </br>
+            </br>
+            <?php
+        }   }
+    }
+?>
+<?php
   $resultObj->close();
   $db->close();
 ?>
 </select>
-<input type="submit" value="Agendar">
+<input type="submit" value="Buscar horário">
+<a href="painel.php"> | cancelar</a>
 </form>
+</div>
 </div>
 </body>
 </html>

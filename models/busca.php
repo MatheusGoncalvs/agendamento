@@ -40,7 +40,7 @@ include('verifica_login.php');
     include('../PDO/connection.php');
 
   try {
-    $query = "SELECT * FROM servico order by tipo_servico";
+    $query = "SELECT * FROM servico ORDER BY id";
     $resultObj = $db->query($query);
 
     if($resultObj){
