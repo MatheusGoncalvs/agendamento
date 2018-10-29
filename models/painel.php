@@ -11,14 +11,12 @@
     $usuario = $_SESSION['usuario'];
   try {
 
-    $query = "SELECT usuario_agendamento.cod_servico, 
-                servico.id, 
-                servico.tipo_servico, 
-                usuario_agendamento.cod_usuario,
-                usuario_agendamento.cod_agendamento
-	            FROM usuario_agendamento 
+    $query = "SELECT * FROM usuario_agendamento 
                 INNER JOIN servico
-                ON usuario_agendamento.cod_servico = servico.id ";
+                ON usuario_agendamento.cod_servico = servico.id 
+                INNER JOIN servico_horario
+                ON usuario_agendamento.cod_horario = servico_horario.cod_horario";
+                
         $resultObj = $db->query($query);
         $quantidade_linhas_usuario = 0;
         if($resultObj ->num_rows > 0){
@@ -29,12 +27,14 @@
                     <table>
                         <tr>
                             <th><h5><?php echo $row['tipo_servico'];?></h5></th>
+                            <th><h5><?php echo $row['data_horario'], " às ", $row['horario'];?></h5></th>
                             <?php
                             echo "<th><a href='../models/reagendamento_servico.php?id=$code'>
                                 <h5>Reagendar</h5></a></th>";
                             echo "<th><a href='../models/cancelar_agendamento.php?id=$code'>
                                 <h5>Cancelar agendamento</h5></a></th>";
                             ?>
+
                         </tr>
                     </table> 
                 <?php
