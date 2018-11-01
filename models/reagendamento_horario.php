@@ -42,31 +42,46 @@
     include('../PDO/connection.php');
     $id = $_GET['id'];
 
-  try {
-    $query = "SELECT * FROM servico_horario order by data_horario";
-    $resultObj = $db->query($query);
-
-    if($resultObj){
-        while($row = $resultObj->fetch_array()){
-            if($row['cod_servico'] == $id){
-        ?>
-            <option value="<?php echo $row['cod_horario']; ?>">
-            <?php echo $row['data_horario'], " às ",$row['horario'], " hs";?>
-            </option> <?php
+    try {
+      $query = "SELECT * FROM servico_horario order by data_horario";
+      $resultObj = $db->query($query);
+      $tem_horario = false;
+  
+      if($resultObj){
+          while($row = $resultObj->fetch_array()){
+            if($row['qtde_horario'] > 0){
+              if($row['cod_servico'] == $id){
+                $tem_horario = true;
+          ?>
+              <option value="<?php echo $row['cod_horario']; ?>">
+              <?php echo $row['data_horario'], " às ",$row['horario'], " hs";?>
+              </option> 
+              
+              
+              <?php
             }
+          }
+        }if($tem_horario){ ?>
+          <input type="submit" value="Reagendar">
+          <?php
         }
+      }if(!$tem_horario){
+        ?>
+              <option>
+              <?php echo " Horários esgotados :(";?>
+              </option> 
+              <?php
+      }
+    
+    }
+    catch (PDOException $e) {
+      printf("We had a problem: %s\n", $e->getMessage());
     }
   
-  }
-  catch (PDOException $e) {
-    printf("We had a problem: %s\n", $e->getMessage());
-  }
-
-  $resultObj->close();
-  $db->close();
+    $resultObj->close();
+    $db->close();
 ?>
 </select>
-<input type="submit" value="Reagendar">
 <a href="painel.php"> | cancelar</a>
 </form>
 </div>

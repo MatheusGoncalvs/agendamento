@@ -5,14 +5,47 @@
     $tipo_servico_select = $_POST["select_servico_2"];
     $usuario = $_SESSION['usuario'];
     $servico_horario = $_POST["select_servico_horario"];
-    $codigo_agendamaento = $_POST["codigo_agendamento"];
+    $codigo_agendamento = $_POST["codigo_agendamento"];
 
     try {
+        $query = "SELECT * FROM servico_horario
+        INNER JOIN usuario_agendamento 
+        ON servico_horario.cod_horario = usuario_agendamento.cod_horario";
+        $resultObj = $db->query($query);
+        if($resultObj){
+            while($row = $resultObj->fetch_array()){
+                if($row['cod_agendamento'] == $codigo_agendamento){
+                    if($row['qtde_horario'] >= 0){
+                        $cod_horario = $row['cod_horario'];
+                        $qtde_horario = ++$row['qtde_horario'];
+                        $query = "UPDATE servico_horario SET qtde_horario = '$qtde_horario'
+                        where cod_horario = '$cod_horario'";
+                        $db->query($query);
+                    }
+                }
+            }
+        }
+
          $query = "UPDATE usuario_agendamento 
             set cod_servico='$tipo_servico_select', 
             cod_horario='$servico_horario' 
-            WHERE cod_agendamento = '$codigo_agendamaento'";
+            WHERE cod_agendamento = '$codigo_agendamento'";
          $db->query($query);
+
+         $query = "SELECT * FROM servico_horario ORDER BY cod_horario";
+         $resultObj = $db->query($query);
+         if($resultObj){
+            while($row = $resultObj->fetch_array()){
+                if($row['cod_horario'] == $servico_horario){
+                    if($row['qtde_horario'] > 0){
+                        $qtde_horario = --$row['qtde_horario'];
+                         $query = "UPDATE servico_horario SET qtde_horario = '$qtde_horario'
+                            where cod_horario = '$servico_horario'";
+                         $db->query($query);
+                    }
+                }
+            }
+        }
 
          $query = "UPDATE servico SET cod_cliente = $usuario
             where id = '$tipo_servico_select'";

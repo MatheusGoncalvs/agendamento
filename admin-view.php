@@ -13,7 +13,7 @@
                             <label for="tipo-servico">Código do serviço: </label>
                         </td>
                         <td align="left">
-                            <input type="text" name="cod_servico">
+                            <input type="text" name="cod_servico" size="1">
                         </td>
                     </tr>
                     <tr>
@@ -38,6 +38,12 @@
                         </td>
                         <td align="left">
                             <input type="text" name="horario">
+                        </td>
+                        <td>
+                            <label for="qtde_horario">Vagas para o horário: </label>
+                        </td>
+                        <td align="left">
+                            <input type="text" name="qtde_horario" size="1">
                         </td>
                     </tr>
                 </table>

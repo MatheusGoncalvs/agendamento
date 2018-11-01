@@ -2,22 +2,37 @@
     include('../models/escolha_horario.php');
     include('../PDO/connection.php');
 
+    //$qtde_horario = $_POST["qtde_horario"];
     $tipo_servico_select = $_POST["select_servico_2"];
     $usuario = $_SESSION['usuario'];
     $servico_horario = $_POST["select_servico_horario"];
 
-    echo $usuario;
+    //Testa
 
     try {
          $query = "INSERT INTO usuario_agendamento (cod_agendamento, cod_usuario, cod_servico, cod_horario) 
             VALUES ('NULL','$usuario','$tipo_servico_select','$servico_horario')";
          $db->query($query);
 
-         echo $tipo_servico_select;
-
          $query = "UPDATE servico SET cod_cliente = $usuario
             where id = '$tipo_servico_select'";
-         $db->query($query);   
+         $db->query($query); 
+
+         $query = "SELECT * FROM servico_horario ORDER BY cod_horario";
+         $resultObj = $db->query($query);
+         if($resultObj){
+            while($row = $resultObj->fetch_array()){
+                if($row['cod_horario'] == $servico_horario){
+                    if($row['qtde_horario'] > 0){
+                        $qtde_horario = --$row['qtde_horario'];
+                         $query = "UPDATE servico_horario SET qtde_horario = '$qtde_horario'
+                            where cod_horario = '$servico_horario'";
+                         $db->query($query);
+                    }
+                }
+            }
+        }
+         
          printf("Dados inseridos com sucesso!");
        }
        catch (PDOException $e) {

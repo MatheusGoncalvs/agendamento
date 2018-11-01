@@ -41,10 +41,10 @@
                 $quantidade_linhas_usuario = ++$quantidade_linhas_usuario;
                 }
             }
-            //Testa se tem serviço cadastrado para o cliente logado. Se não, apresenta a mensagem NSC.
-            if($quantidade_linhas_usuario == 0){?> 
-                <tr><th><h5>Nenhum serviço encontrado :/</h5></tr></th> <?php
-            }
+        }
+        //Testa se tem serviço cadastrado para o cliente logado. Se não, apresenta a mensagem NSC.
+        if($quantidade_linhas_usuario == 0){?> 
+            <tr><th><h5>Nenhum serviço encontrado :/</h5></tr></th> <?php
         }
       }
       catch (PDOException $e) {

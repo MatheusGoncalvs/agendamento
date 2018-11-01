@@ -4,7 +4,25 @@
     $codigo_agendamento = $_GET["id"];
 
     try {
-         $query = "DELETE FROM usuario_agendamento
+         $query = "SELECT * FROM servico_horario
+                        INNER JOIN usuario_agendamento 
+                        ON servico_horario.cod_horario = usuario_agendamento.cod_horario";
+         $resultObj = $db->query($query);
+         if($resultObj){
+            while($row = $resultObj->fetch_array()){
+                if($row['cod_agendamento'] == $codigo_agendamento){
+                    if($row['qtde_horario'] >= 0){
+                        $cod_horario = $row['cod_horario'];
+                        $qtde_horario = ++$row['qtde_horario'];
+                         $query = "UPDATE servico_horario SET qtde_horario = '$qtde_horario'
+                            where cod_horario = '$cod_horario'";
+                         $db->query($query);
+                    }
+                }
+            }
+        }
+
+        $query = "DELETE FROM usuario_agendamento
             WHERE cod_agendamento = '$codigo_agendamento'";
          $db->query($query);
 
