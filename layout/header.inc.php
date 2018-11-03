@@ -19,7 +19,7 @@
                 <h5>Entre na sua conta</h5>
             </a>
             </br>
-            <a href="admin-view.php">
+            <a href="admin-principal.php">
                 <h5>Espaço administrador</h5>
             </a>
         </div>
