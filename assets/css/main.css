@@ -1,12 +1,12 @@
 @import url(font-awesome.min.css);
 @import url('https://fonts.googleapis.com/css?family=Charmonman|Roboto');
 
-html, body, div, span, applet, object,
-iframe, h1, h2, h3, h4, h5, h6, blockquote,
+html, body, span, applet, object,
+iframe, h1, h3, h4, h5, blockquote,
 pre, abbr, acronym, address, big, cite,
 code, del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var, b,
-u, i, center, dl, dt, dd, ol, ul, li,
+u, center, dl, dt, dd, ol, ul, li,
 form, label, legend, caption, tbody,
 tfoot, thead, article, aside,
 canvas, details, embed, figure, figcaption,
@@ -18,6 +18,50 @@ section, summary, time, mark, audio, video {
 	font-size: 100%;
 	font-family: "Roboto", serif;
     vertical-align: baseline;
+}
+
+body {
+    font: 16px Arial;  
+}
+
+a, :active, :hover{
+    text-decoration: none;
+    color:#273C75;
+}
+
+h1{
+    font-size: 18px;
+    color: #273C75;
+}
+
+h2{
+    font-size: 23px;
+    color: #333;
+}
+
+h3 {
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    padding: 1%; 
+}
+
+h4 {
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    padding: 1%; 
+}
+
+h5{
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+}
+
+h6 {
+    font-size: 30px;
+    color: #273C75;
 }
 
 p{
@@ -104,6 +148,93 @@ p{
         padding: 0% 0% 0% 40%;
     }
 
+/*Menu estilos*/
+.bg-dark .navbar-dark .navbar .nav{ 
+    background-color: #273C75 !important;
+    color: white;
+}
+
+.show-links-no-menu {
+    color: white;
+}
+
+.secao-logo-naf{
+    background-color: #ECECEC;
+    height: 250px;
+    margin-top: 0.5%;
+    padding: 2% 0% 2% 31%;
+}
+
+.secao-logo-naf-outras-paginas{
+    background-color: #ECECEC;
+    height: 160px;
+    margin-top: 0.5%;
+    padding: 2% 0% 2% 6%;
+}
+
+.alinhamento-naf-text {
+    padding: 5% 0% 2% 6%;
+}
+.secao-porondecomecar{
+    background-color: #fff;
+    padding: 5% 0% 1% 7%;
+}
+
+.grid-escolhas{
+    padding: 1% 0% 1% 3%;
+    margin: 1% 1% 1% 1%;
+}
+
+.borda{
+    border: #ECECEC solid 2px;
+}
+.rodape{
+    background-color: #ECECEC;
+    height: 70px;
+    padding: 2% 25% 2% 25%;
+}
+
+.linha-horizontal-banner{
+    margin-top: 3px; 
+    border-top: 2px solid #E9E9EF;
+}
+
+.linha-horizontal-rodape{
+    margin: 100px 0px 3px 0px; 
+    border-top: 2px solid #E9E9EF;
+}
+
+.servicos-grid-escolhas {
+    font-size: 40px;
+    border: #ECECEC solid 2px;
+    padding: 10% 50% 10% 50%;
+}
+
+.coluna-nao-tem-conta {
+    padding: 5% 0% 1% 7%;
+}
+
+.coluna-email-senha,  .col-md-8, .col-md-4 {
+    padding: 5% 0% 1% 0%;
+}
+
+.alinhamento-esqueceu-senha-text{
+    padding: 5% 0% 1% 15%;
+}
+
+input[type=submit] {
+    background-color: #57B847;
+}
+
+.btn, .btn-success{
+    background-color: #57B847 !important;
+    border: none;
+    border-radius: 0%;
+}
+
+.coluna-escolhas {
+    margin: 1%;
+}
     /* Pagina de login styles */
 
     .text-center{
@@ -119,22 +250,11 @@ p{
         padding: 1% 0% 0% 25%;
     }
 
-    h5{
-        font-size: 12px;
-        font-family: Arial, sans-serif;
-        text-decoration: none;
-    }
-
     .esqueceu-senha{
         padding: 1% 0% 0% 25%;
         
     }
-
-    a, :active{
-        text-decoration: none;
-        color: #333;
-    }
-
+ 
     .main-agendamento {
         padding: 10% 0% 0% 28%;
     }
@@ -149,10 +269,6 @@ p{
 
     * {
   box-sizing: border-box;
-}
-
-body {
-  font: 16px Arial;  
 }
 
 .autocomplete {
@@ -197,21 +313,19 @@ input[type=submit] {
   color: #ffffff; 
 }
 
+.linha-vertical {
+    height: 55px;/*Altura da linha*/
+    border-left: 2px solid #2E4789;/* Adiciona borda esquerda na div como ser fosse uma linha.*/
+}
+
+.linha-vertical-logar {
+    margin: 0% 20% 0% -1.5%;
+    position: absolute;
+}
+
     /* Painel */
 
-    h3 {
-        font-size: 12px;
-        font-family: Arial, sans-serif;
-        color: #fff;
-        padding: 1%; 
-    }
 
-    h4 {
-        font-size: 12px;
-        font-family: Arial, sans-serif;
-        color: #333;
-        padding: 1%; 
-    }
 
     .seus-agendamentos{
         background-color:#2d3436;

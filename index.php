@@ -1,21 +1,45 @@
 <?php include_once 'layout/header.inc.php' ?>
+    <!--Seção logo do NAF -->
+    <div class="row secao-logo-naf">
+        <img src="imagens/brand-banner.png" class="img-fluid">
+    </div>
+    <div class="row linha-horizontal-banner"></div>
 
-    <!--section-->
-    <section>
-        <div>
-            <p>Esta é a página inicial do sistema!</p>
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when
-                looking
-                at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of
-                letters,
-                as opposed to using 'Content here, content here', making it look like readable English. Many desktop
-                publishing
-                packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem
-                ipsum'
-                will uncover many web sites still in their infancy. Various versions have evolved over the years,
-                sometimes
-                by accident, sometimes on purpose (injected humour and the like).
-            </p>
+    <!--Seção Escolha por onde começar-->
+    <div class=" row secao-porondecomecar">
+        <div class="row">
+            <h1>Escolha por onde começar:</h1>
         </div>
-    </section>
-    <script type="text/javascript" src="assets/js/main.js"></script>
+    </div>
+    <div class="row grid-escolhas">
+        <div class="col-md-3 coluna-escolhas">
+            <div class="row">
+                <h2>Agendar um serviço</h2>
+            </div>
+            <div class="row servicos-grid-escolhas">
+                <a href="index-login.php">
+                    <i class="far fa-clock"></i>
+                </a>
+            </div>
+            <div class="row">
+                <h4>Aqui você pode ter acesso ao nosso sistema online para agendamentos dos nossos serviços.</h4>
+            </div>
+        </div>
+        <div class="col-md-3 coluna-escolhas">
+            <div class="row">
+                <h2>Esclarecer algumas dúvidas</h2>
+            </div>
+            <div class="row servicos-grid-escolhas">
+                <a href="#">
+                    <i class="far fa-envelope"></i>
+                </a>
+            </div>
+            <div class="row">
+                <h4>Tem alguma dúvida? Entre em contato conosco! clique aqui.</h4>
+            </div>
+        </div>
+    </div>
+<?php include_once 'layout/rodape.php' ?>
+
+<script type="text/javascript" src="assets/js/main.js"></script>
+
