@@ -8,6 +8,7 @@
     $codigo_agendamento = $_POST["codigo_agendamento"];
 
     try {
+        //Incrementa mais 1 na tabela servico_horario no atributo qtde_horario
         $query = "SELECT * FROM servico_horario
         INNER JOIN usuario_agendamento 
         ON servico_horario.cod_horario = usuario_agendamento.cod_horario";

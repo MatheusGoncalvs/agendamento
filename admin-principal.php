@@ -50,7 +50,7 @@
 ?>
         </div>
             <div class="fazer-um-novo-agendamento">
-                <a href="../models/busca.php">
+                <a href="admin-view.php">
                     <h5>Fazer um novo agendamento</h5>
                 </a>
             </div>

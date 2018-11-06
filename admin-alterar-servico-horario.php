@@ -45,7 +45,7 @@
      ?>
     <!--section-->
     <section>
-        <form action="models/admin.php" method="post">
+        <form action="admin-update-servico-horario.php" method="post">
 
             <!-- DADOS PESSOAIS-->
             <fieldset>
@@ -56,7 +56,7 @@
                             <label for="tipo-servico">Código do serviço: </label>
                         </td>
                         <td align="left">
-                            <input type="text" name="cod_servico" size="1" value="<?php echo $cod_servico ?>">
+                            <input type="text" name="codigo_servico" size="1" value="<?php echo $cod_servico ?>">
                         </td>
                     </tr>
                     <tr>
@@ -64,7 +64,7 @@
                             <label for="tipo-servico">Tipo de serviço: </label>
                         </td>
                         <td align="left">
-                            <input type="text" name="tipo-servico" value="<?php echo $tipo_servico ?>">
+                            <input type="text" name="tipo_servico" value="<?php echo $tipo_servico ?>">
                         </td>
                     </tr>
                     <tr>
@@ -72,7 +72,7 @@
                             <label>Data: </label>
                         </td>
                         <td align="left">
-                            <input type="text" name="dia" size="6" maxlength="13" value="<?php echo $data_horario ?>">
+                            <input type="text" name="data_servico" size="6" maxlength="13" value="<?php echo $data_horario ?>">
                         </td>
                         <td>
                             <label for="horario">Horário: </label>
