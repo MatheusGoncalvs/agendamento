@@ -30,7 +30,7 @@ session_start();
                         if(isset($_SESSION['nao_autenticado'])):
                     ?>
                     <div class="notification is-danger">
-                        <p>ERRO: Usuário ou senha inválidos.</p>
+                        <h2>O email ou senha digitados não conferem. Por favor verifique os dados informados.</h2>
                     </div>
                     <?php
                         endif;
@@ -39,7 +39,7 @@ session_start();
                 </div>
                 <div class="row">
                     <label for="email">Endereço de email</label>
-                    <input type="text" class="form-control" id="email" name="usuario"
+                    <input type="text" class="form-control" id="email" name="email"
                         aria-describedby="emailHelp" placeholder="Seu email">
                 </div>
                 <div class="row coluna-email-senha">

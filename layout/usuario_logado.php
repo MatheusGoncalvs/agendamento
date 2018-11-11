@@ -21,7 +21,7 @@ include('verifica_login.php');
         <a href="painel.php" class="logo"><strong>Agendamento</strong></a>
         <div class="entre-na-conta">
             <a href="">
-                <h5>Bem vindo: <?php echo $_SESSION['usuario'];?></h5>
+                <h5>Olá: <?php echo $_SESSION['nome'];?></h5>
             </a>
             <a href="index.html">
                 <h5><a href="logout.php"> | Sair | </a></h5>

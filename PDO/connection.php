@@ -1,8 +1,8 @@
 <?php
     $host = 'localhost';
-    $user = 'root';
-    $password = '';
-    $banco = 'agendamento';
+    $user = 'sa';
+    $password = 'sa';
+    $banco = 'naf_db';
 
     $db = new mysqli($host, $user, $password, $banco);
     if ($db->connect_error) {

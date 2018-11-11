@@ -1,6 +1,5 @@
 <!DOCTYPE <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,12 +15,9 @@
 
 <body>
 <!--Menu principal-->
-    
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #273C75; height:56px;font-size:14px">
      <a class="navbar-brand" href="index.php">
-        <img src="imagens/brand.png" width="67" height="50" alt="">
      </a>
-     <div class="linha-vertical"></div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -29,26 +25,40 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-                <a class="nav-link" href="index.php">Inicio <span class="sr-only">(current)</span></a>
+                <div class="row menu-pa-text-painel-administrador active">
+                    <a class="nav-link">
+                        <strong>PAINEL ADMINISTRADOR</strong><span class="sr-only">(current)</span>
+                    </a>
+                </div>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Quem somos</a>
+            <li class="nav-item active" style="">
+                <div class="row menu-pa-resumo">
+                    <div class="col-md-4">
+                        <img class="imagem-menu" src="imagens/resumo.png" alt="">
+                    </div>
+                    <div class="col-md-8 active">
+                        <a class="nav-link" href="admin-principal.php">Resumo</a>
+                    </div>
+                </div>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Contato</a>
+            <li>
+                <div class="row menu-pa-brand-naf">
+                    <a class="navbar-brand" href="index.php">
+                        <img src="imagens/brand.png" width="67" height="50" alt="">
+                    </a>
+                </div>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="admin-principal.php">Espaco administrador</a>
+            <li class="nav-item active" style="">
+                <div class="row menu-pa-gerenciar-cadastros active">
+                    <img class="imagem-menu" src="imagens/produtos.png" width="26" height="20" alt="">
+                    <a class="nav-link" href="admin-gerenciar-cadastros.php">Gerenciar cadastros</a>
+                </div>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0 show-links-no-menu">
-            <div class="linha-vertical linha-vertical-logar"></div>
-            <i class="far fa-user"></i>
-            <a class="nav-link show-links-no-menu" href="index-login.php">Entre na sua conta</a>
         </form>
   </div>
 </nav>
-
 <div class="container-fluid">
     
 

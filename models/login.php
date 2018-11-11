@@ -2,22 +2,30 @@
 include('../PDO/connection.php');
 session_start();
 
-if(empty($_POST['usuario']) || empty($_POST['senha'])) {
+if(empty($_POST['email']) || empty($_POST['senha'])) {
 	header('Location: ../index-login.php');
 	exit();
 }
 
-$usuario = mysqli_real_escape_string($db, $_POST['usuario']);
+$email= mysqli_real_escape_string($db, $_POST['email']);
 $senha = mysqli_real_escape_string($db, $_POST['senha']);
 
-$query = "select usuario from usuario where usuario = '{$usuario}' and senha = ('{$senha}')";
+$query = "SELECT * FROM cliente 
+			WHERE email = '{$email}' AND senha = ('{$senha}')";
 
 $result = mysqli_query($db, $query);
 
 $row = mysqli_num_rows($result);
+//Pega o nome do cliente logado
+$resultObj = $db->query($query);
+$cliente_linha = $resultObj->fetch_array();
+$nome = $cliente_linha['nome'];
+$cliente_id = $cliente_linha['id'];
 
 if($row == 1) {
-	$_SESSION['usuario'] = $usuario;
+	$_SESSION['nome'] = $nome;
+	$_SESSION['email'] = $email;
+	$_SESSION['cliente_id'] = $cliente_id;
 	header('Location: painel.php');
 	exit();
 } else {

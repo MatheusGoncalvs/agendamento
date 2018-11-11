@@ -4,7 +4,7 @@
 html, body, span, applet, object,
 iframe, h1, h3, h4, h5, blockquote,
 pre, abbr, acronym, address, big, cite,
-code, del, dfn, em, img, ins, kbd, q, s, samp,
+code, del, dfn, em, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var, b,
 u, center, dl, dt, dd, ol, ul, li,
 form, label, legend, caption, tbody,
@@ -21,7 +21,7 @@ section, summary, time, mark, audio, video {
 }
 
 body {
-    font: 16px Arial;  
+    font: 14px;  
 }
 
 a, :active, :hover{
@@ -41,21 +41,18 @@ h2{
 
 h3 {
     font-size: 12px;
-    font-family: Arial, sans-serif;
     color: #fff;
     padding: 1%; 
 }
 
 h4 {
-    font-size: 12px;
-    font-family: Arial, sans-serif;
+    font-size: 14px;
     color: #333;
-    padding: 1%; 
+    padding: 0%; 
 }
 
 h5{
     font-size: 12px;
-    font-family: Arial, sans-serif;
     text-decoration: none;
 }
 
@@ -186,7 +183,7 @@ p{
 }
 
 .borda{
-    border: #ECECEC solid 2px;
+    border: #E0E0E9 solid 1px;
 }
 .rodape{
     background-color: #ECECEC;
@@ -363,4 +360,96 @@ input[type=submit] {
         border: 1px solid #dddddd;
         text-align: left;
         padding: 8px;
+    }
+
+    /*Página admimistrador 
+    - MENU*/
+    .menu-pa-gerenciar-cadastros{
+        padding: 1rem 0rem 0rem 6.5rem;
+    }
+    .menu-pa-resumo{
+        padding: 0.7rem 0rem 0rem 17rem;
+    }
+    .menu-pa-brand-naf{
+        padding: 0rem 0rem 0rem 7rem;
+    }
+    .menu-pa-text-painel-administrador{
+        padding: 1rem 0rem 0rem 0rem;
+    }
+
+    .imagem-menu{
+        display: block;
+        margin: 0.3rem 0rem 0rem 0rem;
+        width: 26px; 
+        height: 20px;
+    }
+    
+    /*-RESUMO*/
+    .blocos-admin-principal {
+        margin: 3rem;
+        padding: 1.5rem 0rem 0rem 0rem;
+    }
+    .alinha-dados-blocos {
+        padding: 1rem 0rem 1rem 4rem;
+    }
+    .txt-horario-align{
+        padding: 0.4rem 0rem 0rem 1rem;
+    }
+    .txt-atalho-novo-listar-todos{
+        margin: 0rem;
+        padding: 0.4rem;
+
+    }
+    .txt-titulos{
+        padding-left: 3rem;
+    }
+    .secao{
+        padding-bottom: 7rem;
+    }
+
+    /*-admin-gerenciar-cadastros.php*/
+    .titulo-gerenciar-cadastros{
+        padding: 3rem;
+    }
+    .col-gerenciar-cadastros{
+        margin: 1rem 0rem 2rem 4rem;
+        padding: 0rem;
+    }
+    .bloco-gerenciar-cadastros{
+        margin: 0rem;
+        padding: 2rem 0rem 2rem 5.7rem;
+    }
+    .gerenciar-cadastros-2bloco{
+        margin: 0rem;
+        padding: 0.3rem 0rem 0.3rem 1.2rem;
+    }
+    .gerenciar-cadastros-2bloco-horario{
+        margin: 0rem;
+        padding: 0.3rem 0rem 0.3rem 2.5rem;
+    }
+    .imagem-bloco{
+        display: block;
+        margin: 0.3rem 0rem 0rem 0rem;
+        width: 30px; 
+        height: 30px;
+    }
+
+    /*admin-listar-servicos.php*/
+    .listar-servicos-titulo{
+        padding: 1rem 0rem 3rem 30rem;
+    }
+    .borda-listas{
+        border-bottom: #D5D5E1 solid 1px;
+        margin: 1rem 0rem 2rem 22rem;
+    }
+
+    /*admin-cadastrar-servico-view.php*/
+    .titulo-cadastrar-servico{
+        padding: 4rem 0rem 0rem 22rem;
+    }
+    .alinhamento-cadastrar-servico{
+        padding: 2rem 0rem 11rem 25rem;
+    }
+    .espacamento-formulario{
+        margin-bottom: 1rem;
     }

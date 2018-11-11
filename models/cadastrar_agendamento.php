@@ -1,32 +1,26 @@
 <?php 
-    include('../models/escolha_horario.php');
+    include_once '../layout/usuario_logado.php';
     include('../PDO/connection.php');
 
     //$qtde_horario = $_POST["qtde_horario"];
-    $tipo_servico_select = $_POST["select_servico_2"];
-    $usuario = $_SESSION['usuario'];
-    $servico_horario = $_POST["select_servico_horario"];
-
-    //Testa
-
+    $servico_id = $_POST["servico_id"];
+    $horario_id = $_POST["horario_id"];
+    $cliente_id = $_SESSION['cliente_id'];
     try {
-         $query = "INSERT INTO usuario_agendamento (cod_agendamento, cod_usuario, cod_servico, cod_horario) 
-            VALUES ('NULL','$usuario','$tipo_servico_select','$servico_horario')";
+        //Insere os dados da reserva no banco
+         $query = "INSERT INTO reserva (reserva_id, horario_id, reserva_status, cliente_id, servico_id) 
+            VALUES ('NULL','$horario_id','NULL','$cliente_id','$servico_id')";
          $db->query($query);
-
-         $query = "UPDATE servico SET cod_cliente = $usuario
-            where id = '$tipo_servico_select'";
-         $db->query($query); 
-
-         $query = "SELECT * FROM servico_horario ORDER BY cod_horario";
+        //Atualiza a quantidade_max_vagas para -1
+         $query = "SELECT * FROM horario ORDER BY horario_id";
          $resultObj = $db->query($query);
          if($resultObj){
             while($row = $resultObj->fetch_array()){
-                if($row['cod_horario'] == $servico_horario){
-                    if($row['qtde_horario'] > 0){
-                        $qtde_horario = --$row['qtde_horario'];
-                         $query = "UPDATE servico_horario SET qtde_horario = '$qtde_horario'
-                            where cod_horario = '$servico_horario'";
+                if($row['horario_id'] == $horario_id){
+                    if($row['quantidade_max_vagas'] > 0){
+                        $quantidade_max_vagas = --$row['quantidade_max_vagas'];
+                         $query = "UPDATE horario SET quantidade_max_vagas = '$quantidade_max_vagas'
+                            where horario_id = '$horario_id'";
                          $db->query($query);
                     }
                 }

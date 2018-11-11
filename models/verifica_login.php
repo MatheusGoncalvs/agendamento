@@ -1,8 +1,6 @@
 <?php
-
-if(!$_SESSION['usuario']) {
-	header('Location: index.php');
-	exit();
-}
-
+	if(!$_SESSION['nome']) {
+		header('Location: ../index-login.php');
+		exit();
+	}
 ?>

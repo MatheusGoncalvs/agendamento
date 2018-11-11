@@ -1,13 +1,13 @@
 <?php 
     include('PDO/connection.php');
-    $horario_id = $_GET["id"];
+    $dia_id = $_GET["id"];
 
     try {
-       $query = "DELETE FROM horario
-           WHERE horario_id = '$horario_id'";
+       $query = "DELETE FROM dia
+           WHERE dia_id = '$dia_id'";
         $db->query($query);
 
-        header("Location:admin-listar-horarios.php");
+        header("Location:admin-listar-datas.php");
       }
       catch (PDOException $e) {
         printf("Fique tranquilo, resolveremos este erro: %s\n", $e->getMessage());
