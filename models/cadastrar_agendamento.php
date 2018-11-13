@@ -2,13 +2,12 @@
     include_once '../layout/usuario_logado.php';
     include('../PDO/connection.php');
 
-    //$qtde_horario = $_POST["qtde_horario"];
     $servico_id = $_POST["servico_id"];
     $horario_id = $_POST["horario_id"];
     $cliente_id = $_SESSION['cliente_id'];
     try {
         //Insere os dados da reserva no banco
-         $query = "INSERT INTO reserva (reserva_id, horario_id, reserva_status, cliente_id, servico_id) 
+         $query = "INSERT INTO reserva (reserva_id, horario_id_reserva, reserva_status, cliente_id_reserva, servico_id_reserva) 
             VALUES ('NULL','$horario_id','NULL','$cliente_id','$servico_id')";
          $db->query($query);
         //Atualiza a quantidade_max_vagas para -1
