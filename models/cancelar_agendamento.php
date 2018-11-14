@@ -1,29 +1,29 @@
 <?php 
     include('../PDO/connection.php');
 
-    $codigo_agendamento = $_GET["id"];
+    $reserva_id = $_GET["id"];
 
     try {
-         $query = "SELECT * FROM servico_horario
-                        INNER JOIN usuario_agendamento 
-                        ON servico_horario.cod_horario = usuario_agendamento.cod_horario";
+         $query = "SELECT * FROM reserva
+                        INNER JOIN horario
+                        ON reserva.horario_id_reserva = horario.horario_id";
          $resultObj = $db->query($query);
-         if($resultObj){
+         if($resultObj->num_rows > 0){
             while($row = $resultObj->fetch_array()){
-                if($row['cod_agendamento'] == $codigo_agendamento){
-                    if($row['qtde_horario'] >= 0){
-                        $cod_horario = $row['cod_horario'];
-                        $qtde_horario = ++$row['qtde_horario'];
-                         $query = "UPDATE servico_horario SET qtde_horario = '$qtde_horario'
-                            where cod_horario = '$cod_horario'";
+                if($row['reserva_id'] == $reserva_id){
+                    if($row['quantidade_max_vagas'] >= 0){
+                        $horario_id = $row['horario_id'];
+                        $quantidade_max_vagas = ++$row['quantidade_max_vagas'];
+                         $query = "UPDATE horario SET quantidade_max_vagas = '$quantidade_max_vagas'
+                            where horario_id = '$horario_id'";
                          $db->query($query);
                     }
                 }
             }
         }
 
-        $query = "DELETE FROM usuario_agendamento
-            WHERE cod_agendamento = '$codigo_agendamento'";
+        $query = "DELETE FROM reserva
+            WHERE reserva_id = '$reserva_id'";
          $db->query($query);
 
          header("Location:../models/painel.php");

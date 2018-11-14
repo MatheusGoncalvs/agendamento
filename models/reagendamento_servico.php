@@ -7,6 +7,8 @@
     <div class="input-search">
         <h5>Codigo de agendamento:</h5>
         <input type="text" name="codigo_agendamento" size="1" value="<?php echo $_GET['id'] ?>"/>
+        </br>
+        </br>
         <h5>Escolha o tipo de serviço desejado</h5>
         </br>
         <select required name="id">
@@ -30,7 +32,7 @@
     <?php 
         $query = "SELECT * FROM reserva
                     INNER JOIN servico 
-                    ON reserva.servico_id_reserva > 0";
+                    ON reserva.servico_id_reserva = servico.servico_id";
         $resultObj = $db->query($query);
         if($resultObj){
             while($row = $resultObj->fetch_array()){

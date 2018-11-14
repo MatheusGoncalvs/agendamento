@@ -15,9 +15,11 @@
              try {
                  $query = "SELECT * FROM reserva 
                             INNER JOIN servico
-                            ON reserva.cliente_id_reserva > 0
+                            ON reserva.servico_id_reserva = servico.servico_id
                             INNER JOIN horario
-                            ON reserva.horario_id_reserva = horario.horario_id";
+                            ON reserva.horario_id_reserva = horario.horario_id
+                            INNER JOIN dia
+                            ON horario.dia_id_horario = dia.dia_id";
                 $resultObj = $db->query($query);
                 $quantidade_linhas_usuario = 0;
                 if($resultObj ->num_rows > 0){
@@ -29,7 +31,7 @@
                                 <tr>
                                     <th><h5><?php echo $row['reserva_id'];?></h5></th>
                                     <th><h5><?php echo $row['nome'];?></h5></th><!--Nome do serviço-->
-                                    <th><h5><?php echo "Vai aparecer o dia rs", " às ", $row['horario'];?></h5></th>
+                                    <th><h5><?php echo $row['dia_da_semana'],", ",$row['dia_data'], " às ", $row['horario'];?></h5></th>
                                     <?php
                                         echo "<th><a href='../models/reagendamento_servico.php?id=$reserva_id'>
                                         <h5>Reagendar</h5></a></th>";
