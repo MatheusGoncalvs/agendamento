@@ -29,7 +29,7 @@
                                 <?php
                                     echo"
                                         <a href='admin-excluir-servico.php?id=$servico_id'>
-                                            <img src='imagens/trash.png'>
+                                            <img src='imagens/trash.png' title='Excluir serviço'>
                                         </a>
                                     ";
                                 ?>

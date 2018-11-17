@@ -50,7 +50,7 @@
                 <img class="imagem-bloco" src="imagens/clock.png">
             </div>
             <div class="row borda gerenciar-cadastros-2bloco-horario">
-                <a href="admin-listar-horarios.php">
+                <a href="admin-listar-horarios-escolher-dia.php">
                     <h4>Ver todos os horários</h4>
                 </a>
             </div>

@@ -16,7 +16,7 @@
                     </div>
                     <div class="col-md-1">
                         <a href="admin-principal.php">
-                            <img src="imagens/trash.png">
+                            <img src="imagens/trash.png" title="Exluir horário">
                         </a>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                     </div>
                     <div class="col-md-1">
                         <a href="admin-principal.php">
-                            <img src="imagens/trash.png" alt="Exluir horário">
+                            <img src="imagens/trash.png" title="Exluir horário">
                         </a>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                     </a>
                 </div>
                 <div class="col-md-2">
-                    <a href="#">
+                    <a href="admin-listar-horarios-escolher-dia.php">
                         <h4>Ver todos</h4>
                     </a>
                 </div>
@@ -62,7 +62,6 @@
                     </div>
                     <div class="col-md-1">
                         <a href="admin-principal.php">
-                            <img src="imagens/trash.png">
                         </a>
                     </div>
                 </div>
@@ -75,7 +74,6 @@
                     </div>
                     <div class="col-md-1">
                         <a href="admin-principal.php">
-                            <img src="imagens/trash.png" alt="Exluir horário">
                         </a>
                     </div>
                 </div>
@@ -83,7 +81,6 @@
             <div class="row borda txt-atalho-novo-listar-todos">
                 <div class="col-md-10">
                     <a href="admin-cadastrar-horario-view.php">
-                        <h4>Cadastrar um novo horário</h4>
                     </a>
                 </div>
                 <div class="col-md-2">

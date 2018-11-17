@@ -2,19 +2,24 @@
     include_once 'layout/painel-administrador.php';
     include('PDO/connection.php');  
 ?>
+    <div class="row linha-horizontal-banner"></div>
+    <div class="row titulo-cadastrar-horario">
+        <h1><strong>Cadastrar um novo horário</strong></h1>
+    </div>
+    <div class="row alinhamento-cadastrar-horario">
     <form action="admin-cadastrar-horario.php" method="POST">
-        <div class="row">
+        <div class="row espacamento-formulario">
             <label>Qual o horário desejado?</label>
         </div>
-        <div class="row">
-            <input type="text" name="horario" placeholder="08:00">
+        <div class="row espacamento-formulario">
+            <input type="text" name="horario" size="4" required>
         </div>
-        <div class="row">
+        <div class="row espacamento-formulario">
             <label>Selecione um dia</label>
         </div>
         <!-- Busca todos os dias cadastrados e exibe num select -->
-        <div class="row">
-            <select name="dia_id">
+        <div class="row espacamento-formulario">
+            <select name="dia_id" required>
                 <option>Selecione</option>
                 <?php
                      try{
@@ -36,14 +41,15 @@
                 ?>
             </select>
         </div>
-        <div class="row">
+        <div class="row espacamento-formulario">
             <label>Qual a quantidade máxima de atendimento?</label>
         </div>
-        <div class="row">
-            <input type="text" name="quantidade_max_vagas" placeholder="3" size="1">
+        <div class="row espacamento-formulario">
+            <input type="text" name="quantidade_max_vagas" size="1" required>
         </div>
-        <div class="row">
-            <input type="submit" class="btn btn-success" value="Salvar">
+        <div class="row espacamento-formulario">
+            <input type="submit" class="btn btn-success" value="Cadastrar horario">
         </div>
     </form>
+    </div>
 <?php include_once 'layout/painel-administrador-rodape.php' ?>

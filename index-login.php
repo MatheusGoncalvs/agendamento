@@ -2,7 +2,6 @@
 session_start();
 ?>
 <?php include_once 'layout/header.inc.php' ?>
-
     <!--Seção-->
      <!--Seção logo do NAF -->
     <div class="row">
@@ -47,7 +46,7 @@ session_start();
                         <label for="senha">Senha</label>
                     </div>
                     <div class="col-md-8 alinhamento-esqueceu-senha-text">
-                        <a href="#">Esqueceu a senha?</a>
+                        <a href="recuperar_senha.php">Esqueceu a senha?</a>
                     </div>
                 </div>
                 <div class="row">

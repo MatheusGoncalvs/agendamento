@@ -9,7 +9,7 @@
             <h4>Qual o nome do serviço?</h4>
         </div>
         <div class="row espacamento-formulario">
-            <input type="text" name="servico" placeholder="Servico 1" size="60">
+            <input type="text" name="servico" size="60" required>
         </div>
         <div class="row espacamento-formulario">
             <input type="submit" class="btn btn-success" value="Cadastrar servico">

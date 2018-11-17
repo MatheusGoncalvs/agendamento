@@ -7,7 +7,8 @@
            WHERE horario_id = '$horario_id'";
         $db->query($query);
 
-        header("Location:admin-listar-horarios.php");
+        include("services/msg-exclusao-confirm.php");
+        header("refresh:3;url=admin-listar-horarios-escolher-dia.php");
       }
       catch (PDOException $e) {
         printf("Fique tranquilo, resolveremos este erro: %s\n", $e->getMessage());

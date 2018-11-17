@@ -2,35 +2,40 @@
     include_once 'layout/painel-administrador.php';
     include('PDO/connection.php');
 ?>
- <!--section-->
- <section>
-        <div>
-            <div class="seus-agendamentos">
-                <h3>Aqui estão todos os horários cadastrados</h3>
-            </div>
-            <div class="mostrar-agendamentos">
+<div class="row linha-horizontal-banner"></div>
+<div class="row listar-servicos-titulo">
+    <h1><strong>Abaixo estão todos os dias cadastrados</strong></h1>
+</div>
+<div class="row">
     <?php
-  try {
-    $query = "SELECT * FROM dia ORDER BY dia_id";
-    $resultObj = $db->query($query);
-    $quantidade_linhas_usuario = 0;
-    if($resultObj ->num_rows > 0){
-        while($row = $resultObj->fetch_array()){
-            $dia_id = $row['dia_id'];
+        try {
+            $query = "SELECT * FROM dia ORDER BY dia_data";
+            $resultObj = $db->query($query);
+            $quantidade_linhas_usuario = 0;
+            if($resultObj ->num_rows > 0){
+                while($row = $resultObj->fetch_array()){
+                    $dia_id = $row['dia_id'];
     ?>
-            <table>
-                <tr>
-                    <th><h5><?php echo $row['dia_id'];?></h5></th>
-                    <th><h5><?php echo $row['dia_da_semana'];?></h5></th>
-                    <th><h5><?php echo $row['dia_data'];?></h5></th>
-                    <?php
-                        echo "<th><a href='admin-alterar-servico-horario.php?id=$dia_id'>
-                                <h5>Alterar</h5></a></th>";
-                        echo "<th><a href='admin-excluir-data.php?id=$dia_id'>
-                                <h5>Excluir</h5></a></th>";
-                    ?>
-                </tr>
-            </table> 
+                <div class="col-md-6 borda-listas">
+                    <!--Dados dos blocos-->
+                        <div class="row alinha-dados-blocos">
+                            <div class="col-md-1">
+                                <img src="imagens/servico.png">
+                            </div>
+                            <div class="col-md-9 txt-horario-align">
+                                <h4><?php echo $row['dia_id'],". ", $row['dia_da_semana']," ",$row['dia_data']?></h4>
+                            </div>
+                            <div class="col-md-1">
+                                <?php
+                                    echo"
+                                        <a href='admin-excluir-data.php?id=$dia_id'>
+                                            <img src='imagens/trash.png' title='Excluir dia'>
+                                        </a>
+                                    ";
+                                ?>
+                            </div>
+                        </div>
+                </div>
             <?php
                 $quantidade_linhas_usuario = ++$quantidade_linhas_usuario;
             }
@@ -46,12 +51,5 @@
   $resultObj->close();
   $db->close();
 ?>
-        </div>
-            <div class="fazer-um-novo-agendamento">
-                <a href="admin-principal.php">
-                    <h5>Principal</h5>
-                </a>
-            </div>
-        </div>
-</section>
+</div>
 <?php include_once 'layout/painel-administrador-rodape.php'?>

@@ -7,7 +7,8 @@
            WHERE dia_id = '$dia_id'";
         $db->query($query);
 
-        header("Location:admin-listar-datas.php");
+        include("services/msg-exclusao-confirm.php");
+        header("refresh:3;url=admin-listar-datas.php");
       }
       catch (PDOException $e) {
         printf("Fique tranquilo, resolveremos este erro: %s\n", $e->getMessage());

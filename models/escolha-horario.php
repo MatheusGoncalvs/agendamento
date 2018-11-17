@@ -40,7 +40,8 @@
         try {
           $query = "SELECT * FROM horario 
                       INNER JOIN dia
-                      ON horario.dia_id_horario = dia.dia_id";
+                      ON horario.dia_id_horario = dia.dia_id
+                      ORDER BY dia.dia_data";
           $resultObj = $db->query($query);
           $tem_horario = false;
           if($resultObj){

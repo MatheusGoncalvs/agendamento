@@ -7,7 +7,8 @@
            WHERE servico_id = '$servico_id'";
         $db->query($query);
 
-        header("Location:admin-listar-servicos.php");
+        include("services/msg-exclusao-confirm.php");
+        header("refresh:3;url=admin-listar-servicos.php");
       }
       catch (PDOException $e) {
         printf("Fique tranquilo, resolveremos este erro: %s\n", $e->getMessage());

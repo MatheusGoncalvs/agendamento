@@ -1,42 +1,68 @@
 <?php 
     include_once 'layout/painel-administrador.php';
     include('PDO/connection.php');
+
+    $dia_id = $_POST['dia_id'];
+    
+    //Verifica se o usuário selecionou algum dia. Se não redireciona para a página de erro.
+    if($dia_id <= 0){
+        header("Location:services/msg-selecione-dia.php");
+        exit();
+    }
 ?>
- <!--section-->
- <section>
-        <div>
-            <div class="seus-agendamentos">
-                <h3>Aqui estão todos os horários cadastrados</h3>
-            </div>
-            <div class="mostrar-agendamentos">
+<div class="row linha-horizontal-banner"></div>
+<div class="row listar-horarios-titulo">
+    <h1><strong>Abaixo estão todos os horários cadastrados</strong></h1>
+</div>
+<div class="row">
     <?php
-  try {
-    $query = "SELECT * FROM horario ORDER BY horario_id";
-    $resultObj = $db->query($query);
-    $quantidade_linhas_usuario = 0;
-    if($resultObj ->num_rows > 0){
-        while($row = $resultObj->fetch_array()){
-            $horario_id = $row['horario_id'];
+        try {
+            include("PDO/get_horario_dia.php");
+            $resultObj = $db->query($query);
+            $quantidade_linhas_usuario = 0;
+            if($resultObj ->num_rows > 0){
+                $quantidade_linhas = 1;//Conta os resultados positivos da busca
+                while($row = $resultObj->fetch_array()){
+                    if($row['dia_id_horario'] == $dia_id){
+                        $horario_id = $row['horario_id'];
+                        //Exibe o dia referente ao escolhido abaixo do título somente uma vez.
+                        if($row['dia_id'] == $dia_id && $quantidade_linhas <= 1){
+                            ?>
+                            <div class="row listar-horarios-titulo-data">
+                                <h4><?php echo $row['dia_da_semana'],", ",$row['dia_data']?></h4>
+                            </div>
+                            <?php
+                            $quantidade_linhas++;
+                        }
     ?>
-            <table>
-                <tr>
-                    <th><h5><?php echo $row['horario_id'];?></h5></th>
-                    <th><h5><?php echo $row['horario'];?></h5></th>
+                        <div class="col-md-6 borda-listas">
+                        <!--Dados dos blocos-->
+                            <div class="row alinha-dados-blocos">
+                                <div class="col-md-1">
+                                    <img src="imagens/clock.png">
+                                </div>
+                                <div class="col-md-9 txt-horario-align">
+                                    <h4><?php echo $row['horario_id'],".   <strong>", $row['horario'],"</strong>" ?></h4>
+                                </div>
+                                <div class="col-md-1">
+                                    <?php
+                                        echo"
+                                            <a href='admin-excluir-horario.php?id=$horario_id'>
+                                                <img src='imagens/trash.png' title='Excluir horário'>
+                                            </a>
+                                        ";
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
                     <?php
-                        echo "<th><a href='admin-alterar-servico-horario.php?id=$horario_id'>
-                                <h5>Alterar</h5></a></th>";
-                        echo "<th><a href='admin-excluir-horario.php?id=$horario_id'>
-                                <h5>Excluir</h5></a></th>";
-                    ?>
-                </tr>
-            </table> 
-            <?php
-                $quantidade_linhas_usuario = ++$quantidade_linhas_usuario;
+                    $quantidade_linhas_usuario = ++$quantidade_linhas_usuario;
+                }
             }
         }
         //Testa se tem serviço cadastrado para o cliente logado. Se não, apresenta a mensagem NSC.
         if($quantidade_linhas_usuario == 0){?> 
-            <tr><th><h5>Nenhum serviço encontrado :/</h5></tr></th> <?php
+            <tr><th><h5>Nenhum horário encontrado :/</h5></tr></th> <?php
         }
       }
       catch (PDOException $e) {
@@ -45,12 +71,5 @@
   $resultObj->close();
   $db->close();
 ?>
-        </div>
-            <div class="fazer-um-novo-agendamento">
-                <a href="admin-principal.php">
-                    <h5>Principal</h5>
-                </a>
-            </div>
-        </div>
-</section>
+</div>
 <?php include_once 'layout/painel-administrador-rodape.php'?>

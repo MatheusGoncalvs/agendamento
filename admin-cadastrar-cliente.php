@@ -12,7 +12,8 @@
             VALUES ('NULL', '$nome_cliente', '$cpf',  '$email', '$senha')";
         $db->query($query);
 
-        printf("Dados inseridos com sucesso!");
+        include("services/msg-cadastro-confirm.php");
+        header("refresh:3;url=index-login.php");
         $db->close();
     }catch (PDOException $e){
         printf("Fique tranquilo, resolveremos este erro: %s\n", $e->getMessage());
