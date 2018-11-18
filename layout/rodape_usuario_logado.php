@@ -1,4 +1,4 @@
-<?php include_once 'layout/header.inc.php' ?>
+<?php include_once '../layout/usuario_logado.php'; ?>
 
 <!--Rodapé-->
 <div class="row linha-horizontal-rodape"></div>

@@ -4,16 +4,16 @@
         $email = $_SESSION['email'];
         $cliente_id = $_SESSION['cliente_id'];
     ?>
-    <!--section-->
-    <section>
-        <div>
-            <div class="seus-agendamentos">
-                <h3>Seus agendamentos</h3>
+    <div class="row linha-horizontal-banner"></div>
+    <div class="row secao">
+        <!--Bloco-->
+        <div class="col-md-11 blocos-painel borda">
+            <div class="row txt-titulos-painel">
+                <h1><strong>Seus agendamentos</strong></h1>
             </div>
-            <div class="mostrar-agendamentos">
-            <?php
-             try {
-                 $query = "SELECT * FROM reserva 
+        <?php
+            try {
+                $query = "SELECT * FROM reserva 
                             INNER JOIN servico
                             ON reserva.servico_id_reserva = servico.servico_id
                             INNER JOIN horario
@@ -26,20 +26,39 @@
                     while($row = $resultObj->fetch_array()){
                         if($row['cliente_id_reserva'] == $cliente_id){
                             $reserva_id = $row['reserva_id'];
-            ?>
-                            <table>
-                                <tr>
-                                    <th><h5><?php echo $row['reserva_id'];?></h5></th>
-                                    <th><h5><?php echo $row['nome'];?></h5></th><!--Nome do serviço-->
-                                    <th><h5><?php echo $row['dia_da_semana'],", ",$row['dia_data'], " às ", $row['horario'];?></h5></th>
-                                    <?php
-                                        echo "<th><a href='../models/reagendamento_servico.php?id=$reserva_id'>
-                                        <h5>Reagendar</h5></a></th>";
-                                        echo "<th><a href='../models/cancelar_agendamento.php?id=$reserva_id'>
-                                        <h5>Cancelar agendamento</h5></a></th>";
-                                    ?>
-                                </tr>
-                            </table> 
+        ?>
+                                <!--Dados dos blocos-->
+                                <div class="row alinha-dados-blocos">
+                                <!--descrição do serviço + imagem de relógio-->
+                                <div class="col-md-0">
+                                    <img src="../imagens/clock.png">
+                                </div>
+                                <div class="col-md-10 txt-horario-align">
+                                    <h4>
+                                        <?php echo $row['reserva_id'], ". ",$row['nome']," | ",
+                                            "<strong>",$row['dia_da_semana'],"</strong>, ", $row['dia_data']," às ",$row['horario']," hs."
+                                        ;?>  
+                                    </h4>
+                                </div>
+                                <!--Visualizar documentos-->
+                                <div class="col-md-0 espacamento-icons-painel">
+                                    <a href="painel.php">
+                                        <img src="../imagens/docs.png" title="Visualizar documentos">
+                                    </a>
+                                </div>
+                                <!--Reagendar-->
+                                <div class="col-md-0 espacamento-icons-painel">
+                                    <?php echo "<a href='../models/reagendamento_servico.php?id=$reserva_id'> "; ?>
+                                        <img src="../imagens/edit.png" title="Reagendar">
+                                    </a>
+                                </div>
+                                <!--Cancelar agendamento-->
+                                <div class="col-md-0 espacamento-icons-painel">
+                                    <?php echo "<a href='../models/cancelar_agendamento.php?id=$reserva_id'> ";?>
+                                        <img src="../imagens/trash.png" title="Cancelar agendamento">
+                                    </a>
+                                </div>
+                            </div>
                             <?php
                             $quantidade_linhas_usuario = ++$quantidade_linhas_usuario;
                         }
@@ -47,7 +66,23 @@
                 }
                 //Testa se tem serviço cadastrado para o cliente logado. Se não, apresenta a mensagem NSC.
                 if($quantidade_linhas_usuario == 0){?> 
-                    <tr><th><h5>Nenhum serviço encontrado :/</h5></tr></th> <?php
+                   <!--Dados dos blocos-->
+                   <div class="row alinha-dados-blocos">
+                        <!--Mensagem que não tem agendamento + imagem de relógio apagado-->
+                        <div class="col-md-0">
+                            <img src="../imagens/clock-disable.png">
+                        </div>
+                        <div class="col-md-3 txt-horario-align">
+                            <h4>
+                                Você ainda não tem nenhum agendamento.  
+                            </h4>
+                        </div>
+                        <!--Emoticon triste-->
+                        <div class="col-md-0">
+                            <img src="../imagens/sad-face.png">
+                        </div>
+                    </div> 
+                <?php
                 }
             }
             catch (PDOException $e) {
@@ -56,11 +91,18 @@
             $resultObj->close();
             $db->close();
             ?>
-            </div>
-            <div class="fazer-um-novo-agendamento">
-                <a href="../models/escolha-servico.php">
-                    <h5>Fazer um novo agendamento</h5>
-                </a>
+            <!--Linha que exibe os atalhos cadastrar-novo e Listar-->    
+            <div class="row borda txt-painel-fazer-novo-agendamento">
+                <div class="col-md-10">
+                    <a href="../models/escolha-servico.php">
+                        <h4>Fazer um novo agendamento</h4>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="admin-listar-horarios-escolher-dia.php">
+                    </a>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+    <?php include_once '../layout/rodape_usuario_logado.php'; ?>

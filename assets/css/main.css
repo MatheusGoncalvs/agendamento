@@ -35,8 +35,9 @@ h1{
 }
 
 h2{
-    font-size: 23px;
+    font-size: 12px;
     color: #333;
+    padding: 0%;
 }
 
 h3 {
@@ -52,14 +53,17 @@ h4 {
 }
 
 h5{
-    font-size: 12px;
+    font-size: 14px;
+    color: #fff;
     text-decoration: none;
+    padding: 0%; 
 }
 
 h6 {
-    font-size: 30px;
+    font-size: 16px;
     color: #273C75;
 }
+
 
 p{
     padding: 8% 10% 0% 10%;
@@ -228,6 +232,11 @@ input[type=submit] {
     border: none;
     border-radius: 0%;
 }
+.btn-info{
+    background-color: #273C75 !important;
+    border: none;
+    border-radius: 2%;
+}
 
 .coluna-escolhas {
     margin: 1%;
@@ -365,7 +374,7 @@ input[type=submit] {
     /*Página admimistrador 
     - MENU*/
     .menu-pa-gerenciar-cadastros{
-        padding: 1rem 0rem 0rem 6.5rem;
+        padding: 1rem 0rem 0rem 8rem;
     }
     .menu-pa-resumo{
         padding: 0.7rem 0rem 0rem 17rem;
@@ -390,7 +399,7 @@ input[type=submit] {
         padding: 1.5rem 0rem 0rem 0rem;
     }
     .alinha-dados-blocos {
-        padding: 1rem 0rem 1rem 4rem;
+        padding: 0.8rem 0rem 1rem 4rem;
     }
     .txt-horario-align{
         padding: 0.4rem 0rem 0rem 1rem;
@@ -499,3 +508,102 @@ input[type=submit] {
     .alinhamento-recuperar-senha{
         padding: 2rem 0rem 12.4rem 27rem;
     }
+
+    /*usuario_logado*/
+    .icon-user{
+        color: white;
+        padding: 0.6rem 0rem 0rem 2rem;
+    }
+    .nome-usuario-logado{
+        padding: 0;
+        margin: 0;
+    }
+
+    .icon-logout{
+        color: white;
+        padding: 0.6rem 0rem 0rem 0.5rem;
+    }
+
+    .text-logout{
+        padding: 0.1rem 0rem 0rem 14rem;
+    }
+
+    /*Painel.php*/
+    .blocos-painel{
+        margin: 3rem;
+        padding: 1.5rem 0rem 0rem 0rem;
+    }
+
+    .secao-painel{
+        padding-bottom: 8.2rem;
+        padding-left: 7rem;
+    }
+
+    .txt-titulos-painel{
+        padding-left: 3rem;
+        padding-bottom: 2rem;
+    }
+    .espacamento-icons-painel{
+        padding-left: 1rem;
+    }
+    .txt-painel-fazer-novo-agendamento{
+        margin: 3rem 0rem 0rem 0rem;
+        padding: 0.4rem;
+    }
+
+    /*escolha-servico.php*/
+    .txt-escolher-servico{
+        margin: 0rem 0rem 3rem 0rem;
+        padding: 0rem;
+    }
+
+    .blocos-ecolha-servico{
+        margin: 3rem;
+        padding: 0rem 0rem 7rem 0rem;
+    }
+    .left-border{
+        border-left: #E0E0E9 solid 1px;
+    }
+    .right-border{
+        border-right: #E0E0E9 solid 1px;
+    }
+    .bottom-border{
+        border-bottom: #E0E0E9 solid 1px;
+    }
+    .alinhamento-info{
+        margin: 0rem;
+        padding: 1rem 2rem;
+    }
+    .info-active{
+        background-color: #99FF00;
+    }
+    .select-escolher-servico{
+        margin: 5rem 0rem 0rem 27rem;
+        padding: 0rem;
+    }
+    .select-escolher-horario{
+        margin: 2rem 15rem 0rem 27rem;
+        padding: 0rem;
+    }
+    .botao-escolher-servico{
+        margin: 1rem 0rem 0rem 22.5rem;
+        padding-left: 4.6rem;
+    }
+    .secao-escolha-servico{
+        margin: 0rem;
+        padding: 0rem;
+    }
+
+    /*cadastrar_agendamento*/
+    .txt-confirmacao-agendamento{
+        padding: 0rem 0rem 0rem 30rem;
+    }
+    .txt-informacao-agendamento{
+        margin: 0rem 13rem 0rem 15rem;
+        padding: 1rem;
+    }
+    .secao-cadastro-agendamento{
+        margin: 0rem 0rem 7.5rem 0rem;
+        padding: 0rem;
+    }
+    

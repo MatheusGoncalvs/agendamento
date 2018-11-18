@@ -25,8 +25,46 @@
                 }
             }
         }
-         
-         printf("Dados inseridos com sucesso!");
+        ?>
+        <div class="row linha-horizontal-banner"></div>
+        <div class="row secao-cadastro-agendamento">
+        <!--Bloco-->
+            <div class="col-md-11 blocos-ecolha-servico borda">
+            <!--Exibe em qual seção o cliente está-->    
+                <div class="row bottom-border txt-escolher-servico">
+                    <div class="col-md-0 right-border alinhamento-info">
+                        <a href="../models/escolha-servico.php">
+                            <h6><strong>AGENDAMENTO</strong></h6>
+                        </a>
+                    </div>
+                    <div class="col-md-0 left-border alinhamento-info">
+                        <a>
+                            <h4>Escolha o serviço desejado</h4>
+                        </a>
+                    </div>
+                    <div class="col-md-0 left-border alinhamento-info">
+                        <a>
+                            <h4>Escolha o horário desejado</h4>
+                        </a>
+                    </div>
+                    <div class="col-md-0 left-border right-border alinhamento-info info-active">
+                        <a>
+                            <h4>Agendamento concluido</h4>
+                        </a>
+                    </div>
+                </div>
+                <div class="row txt-confirmacao-agendamento">
+                    <h6><strong>Atendimento agendado com sucesso!</strong></h6>
+                </div>
+                <div class="row txt-informacao-agendamento">
+                    <h4>Por favor, retorne ao seu <a href="../models/painel.php"> <strong>resumo</strong></a> e verifique os documentos que serão necessários apresentar 
+                    no dia do seu atendimento.
+                    </h4>
+                </div>
+            </div>
+        </div>
+
+         <?php
        }
        catch (PDOException $e) {
          printf("Fique tranquilo, resolveremos este erro: %s\n", $e->getMessage());
@@ -34,18 +72,4 @@
 
        $db->close();
 ?>
-
-<!doctype <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
-</head>
-<body>
-    <a href="painel.php">Voltar para o painel</a>
-</body>
-</html>
+<?php include_once '../layout/rodape_usuario_logado.php'; ?>
