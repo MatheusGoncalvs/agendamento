@@ -606,4 +606,16 @@ input[type=submit] {
         margin: 0rem 0rem 7.5rem 0rem;
         padding: 0rem;
     }
+
+    /*reagendamento serviço*/
+    .alinhamento-reagendar-servico{
+        margin: 0rem;
+        padding: 2rem 0rem 11rem 23rem;
+    }
+    .botao-reagendar{
+        padding-top: 2rem;
+        margin: 2rem;
+    }
+    .alinhamento-reagendamento{
+    }
     

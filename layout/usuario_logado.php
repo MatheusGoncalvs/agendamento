@@ -53,7 +53,7 @@ include('verifica_login.php');
             </li>
             <li>
                 <div class="row menu-pa-brand-naf">
-                    <a class="navbar-brand" href="../index.php">
+                    <a class="navbar-brand" href="#">
                         <img src="../imagens/brand.png" width="67" height="50" alt="">
                     </a>
                 </div>
