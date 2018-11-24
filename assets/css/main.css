@@ -21,7 +21,7 @@ section, summary, time, mark, audio, video {
 }
 
 body {
-    font: 14px;  
+    font: 14px; 
 }
 
 a, :active, :hover{
@@ -110,30 +110,41 @@ p{
 
     }
 
-    @media screen and (max-width: 736px) {
+    @media screen and (max-width: 990px) {
 
         #header {
             padding-top: 6.5em;
         }
 
-            #header .logo {
-                font-size: 1.25em;
-                margin: 0;
-                padding: 0% 0% 10% 30%; 
-            }
+        #header .logo {
+            font-size: 1.25em;
+            margin: 0;
+            padding: 0% 0% 10% 30%; 
+        }
 
-            #header .icons {
-                height: 5em;
-                line-height: 5em;
-                position: absolute;
-                right: -0.5em;
-            }
+        #header .icons {
+            height: 5em;
+            line-height: 5em;
+            position: absolute;
+            right: -0.5em;
+        }
 
-            .entre-na-conta{
-                top: 80%;
-                left: -18%;
-                position: absolute;
-            }
+        .entre-na-conta{
+            top: 80%;
+            left: -18%;
+            position: absolute;
+        }
+
+        .linha-vertical{
+            border: none !important;
+        }
+        .resize{
+            width: 307px; 
+            height: 126px;
+            top: 17%;
+            left: 8%;
+            position: absolute;
+        }
 
     }
 
@@ -163,7 +174,6 @@ p{
     background-color: #ECECEC;
     height: 250px;
     margin-top: 0.5%;
-    padding: 2% 0% 2% 31%;
 }
 
 .secao-logo-naf-outras-paginas{
@@ -355,20 +365,6 @@ input[type=submit] {
 
     .resultado-busca{
         padding: 3% 0% 0% 10%;
-    }
-
-    /* Comprovante */
-
-    table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 50%;
-    }
-    
-    td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
     }
 
     /*Página admimistrador 
@@ -618,4 +614,3 @@ input[type=submit] {
     }
     .alinhamento-reagendamento{
     }
-    

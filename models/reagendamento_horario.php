@@ -40,7 +40,7 @@
       <h4>Escolha o novo horário para agendamento:</h4>
       </br>
       <select class="custom-select" required name="horario_id">
-        <option>Escolha o novo horário</option>
+        <option value="">Escolha o novo horário</option>
         <?php
           try {
             $query = "SELECT * FROM horario 

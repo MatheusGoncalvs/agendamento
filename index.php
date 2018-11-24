@@ -1,7 +1,7 @@
 <?php include_once 'layout/header.inc.php' ?>
     <!--Seção logo do NAF -->
     <div class="row secao-logo-naf">
-        <img src="imagens/brand-banner.png" class="img-fluid">
+        <img src="imagens/brand-banner.png" class="img-fluid resize">
     </div>
     <div class="row linha-horizontal-banner"></div>
 
@@ -12,9 +12,9 @@
         </div>
     </div>
     <div class="row grid-escolhas">
-        <div class="col-md-3 coluna-escolhas">
+        <div class="col-sm-3 coluna-escolhas">
             <div class="row">
-                <h2>Agendar um serviço</h2>
+                <h6>Agendar um serviço</h6>
             </div>
             <div class="row servicos-grid-escolhas">
                 <a href="index-login.php">
@@ -25,9 +25,9 @@
                 <h4>Aqui você pode ter acesso ao nosso sistema online para agendamentos dos nossos serviços.</h4>
             </div>
         </div>
-        <div class="col-md-3 coluna-escolhas">
+        <div class="col-sm-3 coluna-escolhas">
             <div class="row">
-                <h2>Esclarecer algumas dúvidas</h2>
+                <h6>Esclarecer algumas dúvidas</h6>
             </div>
             <div class="row servicos-grid-escolhas">
                 <a href="#">

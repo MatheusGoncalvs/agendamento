@@ -9,14 +9,14 @@ session_start();
         <img src="imagens/brand-banner.png" class="img-fluid" width="221px">
     </div>
     <div class="col-md-6 secao-logo-naf-outras-paginas alinhamento-naf-text">
-        <h6>Efetue seu login no <strong>NAF</strong></h6>
+        <h1>Efetue seu login no <strong>NAF</strong></h1>
     </div>
     </div>
     <div class="row linha-horizontal-banner"></div>
     <div class="row">
         <div class="col-md-6 coluna-nao-tem-conta">
             <div class="row">
-                <h2>Não tem uma conta no <strong>NAF</strong>?</h2>
+                <h1>Não tem uma conta no <strong>NAF</strong>?</h1>
             </div>
             <div class="row">
                 <a href="cadastre-se-view.php">Criar uma conta</a>
@@ -29,7 +29,7 @@ session_start();
                         if(isset($_SESSION['nao_autenticado'])):
                     ?>
                     <div class="notification is-danger">
-                        <h2>O email ou senha digitados não conferem. Por favor verifique os dados informados.</h2>
+                        <h4>O email ou senha digitados não conferem. Por favor verifique os dados informados.</h4>
                     </div>
                     <?php
                         endif;

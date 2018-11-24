@@ -3,6 +3,7 @@
         include('../PDO/connection.php');
         $email = $_SESSION['email'];
         $cliente_id = $_SESSION['cliente_id'];
+        $quantidade_linhas = 1;
     ?>
     <div class="row linha-horizontal-banner"></div>
     <div class="row secao">
@@ -42,10 +43,13 @@
                                 </div>
                                 <!--Visualizar documentos-->
                                 <div class="col-md-0 espacamento-icons-painel">
-                                    <a href="painel.php">
+                                    <a href="#0" data-toggle="modal" data-target="#viewDocs">
                                         <img src="../imagens/docs.png" title="Visualizar documentos">
                                     </a>
+                                    <!--Exibe o modal com a lista dos docs-->
+                                    <?php include("../services/confirm-event-msg.php"); ?>
                                 </div>
+
                                 <!--Reagendar-->
                                 <div class="col-md-0 espacamento-icons-painel">
                                     <?php echo "<a href='../models/reagendamento_servico.php?id=$reserva_id'> "; ?>
@@ -54,9 +58,16 @@
                                 </div>
                                 <!--Cancelar agendamento-->
                                 <div class="col-md-0 espacamento-icons-painel">
-                                    <?php echo "<a href='../models/cancelar_agendamento.php?id=$reserva_id'> ";?>
-                                        <img src="../imagens/trash.png" title="Cancelar agendamento">
+                                    <?php echo 
+                                        "<a href='../models/cancelar_agendamento.php?id=$reserva_id'
+                                            data-confirm=''> "
+                                    ;?>
+                                        <img src="../imagens/trash.png" 
+                                        title="Cancelar agendamento">
                                     </a>
+                                    <?php
+                                    ?>
+
                                 </div>
                             </div>
                             <?php

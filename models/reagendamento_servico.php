@@ -10,9 +10,10 @@
 <div class="row alinhamento-reagendar-servico">
     <form action="reagendamento_horario.php" method="GET">
             <input type="hidden" name="codigo_agendamento" size="1" value="<?php echo $_GET['id'] ?>"/>
-            <h4>Escolha o serviço para troca</h4>
+            <h4>Escolha o serviço para reagendar</h4>
             </br>
             <select class="custom-select" required name="id">
+                <option value="">Escolha o serviço</option>
             <?php
                 $query = "SELECT * FROM servico ORDER BY servico_id";
                 $resultObj = $db->query($query);
