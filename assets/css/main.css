@@ -69,6 +69,10 @@ p{
     padding: 8% 10% 0% 10%;
 }
 
+ul, li, ol{
+    list-style: none;
+}
+
 /* Header */
 /* Agendamento styles */
 #header {
@@ -174,6 +178,8 @@ p{
     background-color: #ECECEC;
     height: 250px;
     margin-top: 0.5%;
+    padding: 2rem 2rem;
+    padding-left: 23rem;
 }
 
 .secao-logo-naf-outras-paginas{

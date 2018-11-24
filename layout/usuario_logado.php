@@ -31,6 +31,7 @@ include('verifica_login.php');
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
                 <div class="row menu-pa-text-painel-administrador active">
+                    <!--Exibe o nome do usuário conectado-->
                     <div class="col-md-0 icon-user">
                         <i class="far fa-user"></i>
                     </div>
